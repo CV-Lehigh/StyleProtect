@@ -7,6 +7,9 @@ This repo is official code space for StyleProtect, including main method (StyleP
 conda env create -f environment.yml
 ```
 
+#### Dataset
+The refined WikiArt and Anita Dataset are found in [Google Drive](https://drive.google.com/drive/folders/1EMlAoOAEKi_bqLabiUUXnpo2G1w-n2Jn?usp=sharing).
+
 #### Run protection
 First, change the path in train.sh file.
 ```
