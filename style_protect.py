@@ -223,7 +223,7 @@ class CustomDiffusionDataset(Dataset):
 
 
 def parse_args(input_args=None):
-    parser = argparse.ArgumentParser(description="CAAT training script.")
+    parser = argparse.ArgumentParser(description="training script.")
     parser.add_argument(
         "--alpha",
         type=float,
@@ -536,7 +536,7 @@ def main(args):
         transformers.utils.logging.set_verbosity_error()
         diffusers.utils.logging.set_verbosity_error()
 
-    accelerator.init_trackers("CAAT", config=vars(args))
+    accelerator.init_trackers("StyleProtect", config=vars(args))
 
     # If passed along, set the training seed now.
     if args.seed is not None:

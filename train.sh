@@ -44,3 +44,4 @@ done
 python infer.py \
   --path=$SAVE_MODEL_DIR \
   --output_path=$INFER_DIR
+
