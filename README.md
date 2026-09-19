@@ -2,7 +2,7 @@
 
 [Qiuyu Tang](https://qiuyutang.com/), [Joshua Krinsky](https://joshpk29.github.io/), [Aparna Bharati](https://www.aparnabharati.com/)
 
-[[Paper](https://openaccess.thecvf.com/content/CVPR2026W/APAI/html/Tang_StyleProtect_Safeguarding_Artistic_Identity_in_Finetuned_Diffusion_Models_CVPRW_2026_paper.html)]
+[[Paper](https://openaccess.thecvf.com/content/CVPR2026W/APAI/html/Tang_StyleProtect_Safeguarding_Artistic_Identity_in_Finetuned_Diffusion_Models_CVPRW_2026_paper.html)] [[Project](https://cv-lehigh.github.io/StyleProtect/)]
 
 **TL;DR:** StyleProtect adds imperceptible perturbations to artworks so DreamBooth-style finetuning cannot copy the artist's style, by updating only style-sensitive cross-attention layers.
 
