@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="title" content="StyleProtect: Safeguarding Artistic Identity in Fine-tuned Diffusion Models">
+  <meta name="description" content="StyleProtect adds imperceptible perturbations to artworks so DreamBooth-style finetuning cannot copy an artist's style, by updating only style-sensitive cross-attention layers.">
+  <meta name="keywords" content="style protection, diffusion models, DreamBooth, artistic identity, adversarial perturbation, computer vision">
+  <meta name="author" content="Qiuyu Tang, Joshua Krinsky, Aparna Bharati">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Lehigh University">
+  <meta property="og:title" content="StyleProtect: Safeguarding Artistic Identity in Fine-tuned Diffusion Models">
+  <meta property="og:description" content="StyleProtect adds imperceptible perturbations to artworks so DreamBooth-style finetuning cannot copy an artist's style.">
+  <meta property="og:url" content="https://cv-lehigh.github.io/StyleProtect/">
+  <meta property="og:image" content="https://cv-lehigh.github.io/StyleProtect/static/images/social_preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="article:published_time" content="2026-06-01T00:00:00.000Z">
+  <meta property="article:author" content="Qiuyu Tang">
+  <meta property="article:section" content="Research">
+  <meta property="article:tag" content="diffusion models">
+  <meta property="article:tag" content="style protection">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="StyleProtect: Safeguarding Artistic Identity in Fine-tuned Diffusion Models">
+  <meta name="twitter:description" content="StyleProtect adds imperceptible perturbations to artworks so DreamBooth-style finetuning cannot copy an artist's style.">
+  <meta name="twitter:image" content="https://cv-lehigh.github.io/StyleProtect/static/images/social_preview.png">
+
+  <meta name="citation_title" content="StyleProtect: Safeguarding Artistic Identity in Finetuned Diffusion Models">
+  <meta name="citation_author" content="Tang, Qiuyu">
+  <meta name="citation_author" content="Krinsky, Joshua">
+  <meta name="citation_author" content="Bharati, Aparna">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_conference_title" content="Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops">
+  <meta name="citation_pdf_url" content="https://openaccess.thecvf.com/content/CVPR2026W/APAI/papers/Tang_StyleProtect_Safeguarding_Artistic_Identity_in_Finetuned_Diffusion_Models_CVPRW_2026_paper.pdf">
+
+  <meta name="theme-color" content="#2563eb">
+
+  <title>StyleProtect: Safeguarding Artistic Identity in Fine-tuned Diffusion Models</title>
+
+  <link rel="icon" type="image/png" href="static/images/favicon.png">
+  <link rel="apple-touch-icon" href="static/images/favicon.png">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+</head>
+<body>
+
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <main id="main-content">
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">StyleProtect: Safeguarding Artistic Identity in Fine-tuned Diffusion Models</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://qiuyutang.com/" target="_blank">Qiuyu Tang</a>,</span>
+              <span class="author-block">
+                <a href="https://joshpk29.github.io/" target="_blank">Joshua Krinsky</a>,</span>
+              <span class="author-block">
+                <a href="https://www.aparnabharati.com/" target="_blank">Aparna Bharati</a>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Lehigh University<br>CVPR 2026 Workshops (APAI)</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="https://openaccess.thecvf.com/content/CVPR2026W/APAI/html/Tang_StyleProtect_Safeguarding_Artistic_Identity_in_Finetuned_Diffusion_Models_CVPRW_2026_paper.html" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://openaccess.thecvf.com/content/CVPR2026W/APAI/supplemental/Tang_StyleProtect_Safeguarding_Artistic_CVPRW_2026_supplemental.pdf" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Supplementary</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://github.com/CV-Lehigh/StyleProtect" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2509.13711" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
+                  <span>arXiv</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://drive.google.com/drive/folders/1EMlAoOAEKi_bqLabiUUXnpo2G1w-n2Jn?usp=sharing" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-database"></i></span>
+                  <span>Dataset</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <img src="static/images/figure1.png" alt="StyleProtect teaser: finetuning copies Monet's style more faithfully than frozen inference" class="paper-figure"/>
+        <h2 class="subtitle has-text-centered">
+          Finetuning copies artistic style more faithfully than frozen inference.
+          StyleProtect perturbs the artworks so this mimicry fails.
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Artistic style embodies not only aesthetic choices but also the culmination of an artist's creative identity, vision, and years of practice. The emergence of generative AI, especially diffusion-based models, has introduced new risks by making it possible to imitate these styles with little cost. While general-purpose diffusion models already demonstrate strong capabilities in reproducing stylistic patterns, finetuning further strengthens this ability, allowing models to internalize and replicate an artist's style with greater precision and flexibility. This growing risk of style mimicry underscores the need for effective and efficient protection of artistic works. We hypothesize that certain layers in the diffusion model exhibit heightened sensitivity to artistic styles and can be used to learn efficient yet effective style protection. We propose to measure sensitivity through activation strengths of attention layers in response to style and content representations, and assessing their correlations with features extracted from external models. Based on our findings, we introduce an efficient and lightweight protection strategy, StyleProtect, that achieves effective style defense against finetuned diffusion models by updating only selected cross-attention layers. Our experiments utilize a carefully curated artwork dataset based on WikiArt, comprising representative works from 30 artists known for their distinctive and influential styles and cartoon animations from the Anita dataset. The proposed method demonstrates promising performance in safeguarding unique styles of artworks and anime from malicious diffusion customization, while being efficient and maintaining imperceptibility.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Method</h2>
+          <div class="content has-text-justified">
+            <p>
+              Middle cross-attention layers in Stable Diffusion respond more strongly to style than to content.
+              StyleProtect finetunes only those layers and learns an <em>ℓ<sub>∞</sub></em>-bounded perturbation that suppresses the style signal.
+            </p>
+          </div>
+          <img src="static/images/figure2.png" alt="Layer-wise style vs content sensitivity in cross-attention" class="paper-figure"/>
+          <p class="subtitle has-text-centered">
+            Mid-level cross-attention layers are more sensitive to style tokens than to content tokens.
+          </p>
+          <img src="static/images/figure3.png" alt="StyleProtect pipeline: perturbation plus selected cross-attention updates" class="paper-figure"/>
+          <p class="subtitle has-text-centered">
+            Pipeline: freeze most of the U-Net, update style-sensitive cross-attention layers, and optimize perturbation δ.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Results</h2>
+          <div class="content has-text-justified">
+            <p>
+              On a curated WikiArt subset of 30 artists, StyleProtect attains the strongest style protection
+              (highest ArtFID, lowest CSD) among compared methods, with competitive imperceptibility and the second-fastest runtime.
+            </p>
+          </div>
+          <img src="static/images/table1.png" alt="Quantitative comparison of protection methods" class="paper-figure"/>
+          <img src="static/images/figure4.png" alt="Qualitative DreamBooth edits of Monet's style under different protections" class="paper-figure"/>
+          <p class="subtitle has-text-centered">
+            DreamBooth edits targeting Monet's style. StyleProtect yields the most disrupted mimicry.
+          </p>
+          <img src="static/images/figure5.png" alt="StyleProtect on Anita cartoon styles" class="paper-figure"/>
+          <p class="subtitle has-text-centered">
+            The same protection also disrupts cartoon-style mimicry on the Anita dataset.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <div class="bibtex-header">
+        <h2 class="title">BibTeX</h2>
+        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
+          <i class="fas fa-copy"></i>
+          <span class="copy-text">Copy</span>
+        </button>
+      </div>
+      <pre id="bibtex-code"><code>@InProceedings{Tang_2026_CVPR,
+    author    = {Tang, Qiuyu and Krinsky, Joshua and Bharati, Aparna},
+    title     = {StyleProtect: Safeguarding Artistic Identity in Finetuned Diffusion Models},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops},
+    month     = {June},
+    year      = {2026},
+    pages     = {10759-10769}
+}</code></pre>
+    </div>
+  </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+              You are free to borrow the source code of this website, we just ask that you link back to this page in the footer.
+              <br>
+              This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
